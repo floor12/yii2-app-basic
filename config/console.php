@@ -8,9 +8,21 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
+    'controllerMap' => [
+        'migrate' => [
+            'class' => 'fishvision\migrate\controllers\MigrateController',
+            'autoDiscover' => true,
+            'migrationPaths' => [
+                '@vendor/floor12/yii2-module-files/src/migrations',
+                '@vendor/floor12/yii2-module-pages/src/migrations',
+                '@vendor/floor12/yii2-module-news/src',
+                '@vendor/floor12/yii2-module-banner/src/migrations',
+            ],
+        ],
+    ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
         '@tests' => '@app/tests',
     ],
     'components' => [

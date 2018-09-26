@@ -1,0 +1,12 @@
+Redirect 301 /en/articles/razbor/gm6t https://akppro.com/en/archive/article/gm6t
+Redirect 301 /ru/articles/razbor/gm6t https://akppro.com/ru/archive/article/gm6t
+
+
+RewriteEngine on
+
+# if a directory or a file exists, use the request directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward the request to index.php
+RewriteRule . index.php
