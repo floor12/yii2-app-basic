@@ -14,6 +14,8 @@ class m180927_103257_init_data extends Migration
      */
     public function safeUp()
     {
+
+        // create first user
         $model = new User();
         $model->id = 1;
         $model->fullname = "Администратор";
@@ -23,7 +25,20 @@ class m180927_103257_init_data extends Migration
         $model->updated = time();
         $model->status = BaseStatus::STATUS_ACTIVE;
         $model->setPassword(123456);
-        print_r($model->save());
+        $model->save();
+
+
+        // load demo pages and news
+        $this->compact = true;
+
+
+        try {
+            $this->execute(file_get_contents(Yii::getAlias("@app/migrations/demo_data/dump.sql")), []);
+        } catch (Exception $e) {
+            echo "Error import into database" . PHP_EOL;
+
+        }
+
     }
 
     /**

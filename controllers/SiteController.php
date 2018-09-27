@@ -8,6 +8,7 @@ use app\models\form\LoginForm;
 use app\models\form\PasswordResetRequestForm;
 use app\models\form\ResetPasswordForm;
 use app\models\form\SignupForm;
+use floor12\fprotector\Fprotector;
 use floor12\pages\components\SitemapWidget;
 use Yii;
 use yii\base\InvalidParamException;
@@ -110,14 +111,29 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+            Fprotector::check('ContactForm');
+
+            if ($model->sendEmail()) {
+                return $this->render("info", ['h1' => \Yii::t('app', 'Thank you for letter'), 'text' => \Yii::t('app', 'We will contact you soon.')]);
+            } else {
+                throw new BadRequestHttpException("Error with sending email...");
+            }
 
             return $this->refresh();
+        } else {
+
+            Yii::$app->metamaster
+                ->setTitle(\Yii::t('app', 'Contacts of editorial office of the magazine.'))
+                ->setDescription(Yii::t('app', "Feedback form, map and address of the editorial office of the AKPPro magazine."))
+                ->register($this->getView());
+
+            return $this->render('contact', [
+                'model' => $model,
+            ]);
         }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
     }
 
     /** build sitemap
@@ -198,9 +214,6 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-
-
-
 
 
 }

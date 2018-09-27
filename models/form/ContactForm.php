@@ -14,7 +14,6 @@ class ContactForm extends Model
     public $name;
     public $email;
     public $phone;
-    public $subject;
     public $body;
     public $verifyCode;
 
@@ -25,7 +24,7 @@ class ContactForm extends Model
     public function rules()
     {
         return [
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [['name', 'email', 'body', 'phone'], 'required'],
             ['email', 'email'],
             ['phone', PhoneValidator::class]
         ];
@@ -37,27 +36,42 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'name' => Yii::t('app', 'Name'),
+            'email' => Yii::t('app', 'Email'),
+            'phone' => Yii::t('app', 'Phone'),
+            'body' => Yii::t('app', 'Body'),
         ];
     }
 
-    /**
-     * Sends an email to the specified email address using the information collected by this model.
-     * @param string $email the target email address
-     * @return bool whether the model passes validation
-     */
-    public function contact($email)
+    public function sendEmail()
     {
-        if ($this->validate()) {
-            Yii::$app->mailer->compose()
-                ->setTo($email)
-                ->setFrom([$this->email => $this->name])
-                ->setSubject($this->subject)
-                ->setTextBody($this->body)
-                ->send();
 
-            return true;
-        }
-        return false;
+        // Благодарим пользователя
+
+        Yii::$app
+            ->mailer
+            ->compose(
+                ['html' => 'contact-thanks'],
+                ['model' => $this]
+            )
+            ->setFrom([Yii::$app->params['no-replayEmail'] => Yii::$app->params['no-replayName']])
+            ->setTo($this->email)
+            ->setSubject(Yii::t('app', 'Thank you for contact us'))
+            ->send();
+
+
+        Yii::$app
+            ->mailer
+            ->compose(
+                ['html' => 'contact'],
+                ['model' => $this]
+            )
+            ->setFrom([Yii::$app->params['no-replayEmail'] => Yii::$app->params['no-replayName']])
+            ->setTo(Yii::$app->params['adminEmail'])
+            ->setSubject(Yii::t('app', 'New message from contact form'))
+            ->send();
+
+        return true;
+
     }
 }
