@@ -7,6 +7,7 @@ $modules = require __DIR__ . '/modules.php';
 
 $config = [
     'id' => 'basic',
+    'name' => 'Мой сайт',
     'language' => 'ru',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],

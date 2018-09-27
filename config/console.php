@@ -17,7 +17,7 @@ $config = [
             'migrationPaths' => [
                 '@vendor/floor12/yii2-module-files/src/migrations',
                 '@vendor/floor12/yii2-module-pages/src/migrations',
-                '@vendor/floor12/yii2-module-news/src',
+                '@vendor/floor12/yii2-module-news/src/migrations',
                 '@vendor/floor12/yii2-module-banner/src/migrations',
             ],
         ],

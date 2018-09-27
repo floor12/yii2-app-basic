@@ -2,6 +2,7 @@
 
 namespace app\models\form;
 
+use floor12\phone\PhoneValidator;
 use Yii;
 use yii\base\Model;
 
@@ -12,6 +13,7 @@ class ContactForm extends Model
 {
     public $name;
     public $email;
+    public $phone;
     public $subject;
     public $body;
     public $verifyCode;
@@ -23,12 +25,9 @@ class ContactForm extends Model
     public function rules()
     {
         return [
-            // name, email, subject and body are required
             [['name', 'email', 'subject', 'body'], 'required'],
-            // email has to be a valid email address
             ['email', 'email'],
-            // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            ['phone', PhoneValidator::class]
         ];
     }
 

@@ -12,7 +12,7 @@ use floor12\news\News;
 
 class SitemapLinks
 {
-    private $_links;
+    private $_links = [];
     private $_objects;
 
     public function __construct()
