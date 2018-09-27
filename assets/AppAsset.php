@@ -27,5 +27,7 @@ class AppAsset extends AssetBundle
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+        'floor12\editmodal\EditModalAsset',
+        'floor12\pages\assets\PagesAsset'
     ];
 }

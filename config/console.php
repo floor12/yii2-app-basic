@@ -2,12 +2,14 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$modules = require __DIR__ . '/modules.php';
 
 $config = [
     'id' => 'basic-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
+    'modules' => $modules,
     'controllerMap' => [
         'migrate' => [
             'class' => 'fishvision\migrate\controllers\MigrateController',

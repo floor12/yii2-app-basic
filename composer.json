@@ -63,6 +63,8 @@
       "setPermission": [
         {
           "runtime": "0777",
+          "backups": "0777",
+          "storage": "0777",
           "web/assets": "0777",
           "yii": "0755"
         }

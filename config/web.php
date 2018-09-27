@@ -1,9 +1,9 @@
 <?php
 
-use floor12\backup\models\BackupType;
-
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$modules = require __DIR__ . '/modules.php';
+
 
 $config = [
     'id' => 'basic',
@@ -15,40 +15,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
-    'modules' => [
-        'backup' => [
-            'class' => 'floor12\backup\Module',
-            'backupFolder' => '@common/../backups',
-            'editRole' => '@',
-            'configs' => [
-                [
-                    'id' => 'main_db',
-                    'type' => BackupType::DB,
-                    'title' => 'Основная база',
-                    'connection' => 'db'
-                ]
-            ]
-        ],
-        'banner' => [
-            'class' => 'floor12\banner\Module',
-            'editRole' => '@',
-            'layout' => '@frontend/views/layouts/main'
-        ],
-        'pages' => [
-            'class' => 'floor12\pages\Module',
-            'editRole' => '@',
-            'layout' => '@app/views/layouts/columns',
-            'userModel' => \app\models\User::class
-        ],
-        'news' => [
-            'class' => 'floor12\news\Module',
-            'editRole' => '@',
-            'userModel' => \app\models\User::class
-        ],
-        'files' => [
-            'class' => 'floor12\files\Module',
-        ],
-    ],
+    'modules' => $modules,
     'components' => [
         'metamaster' => [
             'class' => 'floor12\metamaster\MetaMaster',

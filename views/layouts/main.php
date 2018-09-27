@@ -5,10 +5,11 @@
 /* @var $content string */
 
 use app\assets\AppAsset;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
+use floor12\banner\widgets\PopupWidget;
+use floor12\pages\components\Breadcrumbs;
+use floor12\pages\components\DropdownMenuWidget;
+use floor12\pages\components\MobileMenuWidget;
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
 
 AppAsset::register($this);
 ?>
@@ -25,43 +26,25 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+<?php PopupWidget::widget([]) ?>
+
+<div id="mobile-menu">
+    <?= MobileMenuWidget::widget(['parent_id' => 0, 'model' => isset($this->params['currentPage']) ? $this->params['currentPage'] : NULL]) ?>
+</div>
+
 
 <div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-            ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->getId() . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-    ?>
+
+    <div class="top-menu">
+        <div class="container">
+            <?= DropdownMenuWidget::widget(['parent_id' => 0]) ?>
+        </div>
+    </div>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+
+        <?= (Yii::$app->request->url != '/') ? Breadcrumbs::widget(['items' => !empty($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],]) : NULL; ?>
+
         <?= $content ?>
     </div>
 </div>
