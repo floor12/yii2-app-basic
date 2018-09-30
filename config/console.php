@@ -15,6 +15,7 @@ $config = [
             'class' => 'fishvision\migrate\controllers\MigrateController',
             'autoDiscover' => true,
             'migrationPaths' => [
+                '@vendor/floor12/yii2-module-user/src/migrations',
                 '@vendor/floor12/yii2-module-files/src/migrations',
                 '@vendor/floor12/yii2-module-pages/src/migrations',
                 '@vendor/floor12/yii2-module-news/src/migrations',

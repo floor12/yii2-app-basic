@@ -1,9 +1,8 @@
 <?php
 
-use app\models\BaseStatus;
-use app\models\User;
 use yii\db\Migration;
-
+use floor12\user\models\UserStatus;
+use floor12\user\models\User;
 /**
  * Class m180927_103257_init_data
  */
@@ -23,7 +22,7 @@ class m180927_103257_init_data extends Migration
         $model->phone = "55555555555";
         $model->created = time();
         $model->updated = time();
-        $model->status = BaseStatus::STATUS_ACTIVE;
+        $model->status = UserStatus::STATUS_ACTIVE;
         $model->setPassword(123456);
         $model->save();
 
