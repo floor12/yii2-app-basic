@@ -13,9 +13,7 @@
 
 ?>
 
-
-<div class="h1-wrapper h1-wrapper-margin">
+<div class="f12-info-conten">
     <h1><?= $h1 ?></h1>
+    <p><?= $text ?></p>
 </div>
-
-<p><?= $text ?></p>

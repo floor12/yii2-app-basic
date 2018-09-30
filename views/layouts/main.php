@@ -38,6 +38,13 @@ AppAsset::register($this);
     <div class="top-menu">
         <div class="container">
             <?= DropdownMenuWidget::widget(['parent_id' => 0]) ?>
+
+            <?php if (Yii::$app->user->isGuest)
+                echo Html::a('Вход', ['/user/frontend/login'], ['class' => 'pull-right']);
+            else
+                echo Html::a('Выйти', ['/user/frontend/logout'], ['class' => 'pull-right']);
+            ?>
+
         </div>
     </div>
 

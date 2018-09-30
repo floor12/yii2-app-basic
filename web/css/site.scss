@@ -3,6 +3,12 @@ body {
   height: 100%;
 }
 
+h1 {
+  margin-top: -7px;
+  padding-bottom: 2px;
+  border-bottom: 1px #eee solid;
+}
+
 .wrap {
   min-height: 100%;
   height: auto;
@@ -11,7 +17,7 @@ body {
 }
 
 .wrap > .container {
-  padding: 0px 15px 20px;
+  padding: 0 15px 20px;
 }
 
 .footer {
@@ -23,6 +29,13 @@ body {
 
 div.top-menu {
   background-color: #eee;
+}
+
+//editmodal
+
+div.modal-header h2 {
+  margin: 0;
+  font-size: 170%;
 }
 
 //breadcrumbs
@@ -70,7 +83,7 @@ ul.dropDownMenu {
   li, li.active {
     line-height: 17px;
     float: left;
-    padding: 7px 22px 3px 0;
+    padding: 0 22px 3px 0;
 
     a {
       cursor: pointer;
@@ -115,7 +128,7 @@ ul.dropDownMenu {
       background: #eeeeee;
       border-radius: 2px;
       margin: 3px 0 0 0;
-      box-shadow: 0px 3px 16px #0000001a;
+      box-shadow: 0 3px 16px #0000001a;
       display: none;
       transition: all 0.2s;
       z-index: 100;

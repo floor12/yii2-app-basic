@@ -6,8 +6,9 @@
  * Time: 9:50
  */
 
-
 use floor12\backup\models\BackupType;
+use floor12\user\models\User;
+
 
 return [
     'backup' => [
@@ -27,15 +28,19 @@ return [
         'class' => 'floor12\banner\Module',
         'editRole' => '@',
     ],
+    'user' => [
+        'class' => 'floor12\user\Module',
+        'editRole' => '@',
+    ],
     'pages' => [
         'class' => 'floor12\pages\Module',
         'editRole' => '@',
-        'userModel' => \app\models\User::class
+        'userModel' => User::class
     ],
     'news' => [
         'class' => 'floor12\news\Module',
         'editRole' => '@',
-        'userModel' => \app\models\User::class
+        'userModel' => User::class,
     ],
     'files' => [
         'class' => 'floor12\files\Module',

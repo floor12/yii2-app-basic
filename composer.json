@@ -1,6 +1,6 @@
 {
   "name": "floor12/yii2-app-basic",
-  "description": "Yii 2 Basic Project Template",
+  "description": "floor12 Yii 2 Basic Project Template",
   "keywords": [
     "yii2",
     "framework",
@@ -17,17 +17,18 @@
     "irc": "irc://irc.freenode.net/yii",
     "source": "https://github.com/yiisoft/yii2"
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "require": {
     "php": ">=7.1.0",
     "yiisoft/yii2": "~2.0.14",
     "yiisoft/yii2-bootstrap": "~2.0.0",
     "yiisoft/yii2-swiftmailer": "~2.0.0",
     "fishvision/yii2-migrate": "^1.0",
-    "floor12/yii2-module-pages": "*",
+    "floor12/yii2-module-pages": "~1.0.7",
     "floor12/yii2-module-news": "*",
     "floor12/yii2-module-banner": "*",
-    "floor12/yii2-fprotector": "*",
+    "floor12/yii2-module-user": "dev-master",
+    "floor12/yii2-fprotector": "dev-master",
     "floor12/yii2-formhint": "dev-master",
     "floor12/yii2-module-backup": "dev-master",
     "floor12/yii2-phone": "^1.0",
@@ -88,6 +89,10 @@
     {
       "type": "git",
       "url": "https://github.com/floor12/yii2-module-backup"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/floor12/yii2-module-user"
     }
   ]
 }
