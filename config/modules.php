@@ -20,7 +20,15 @@ return [
                 'id' => 'main_db',
                 'type' => BackupType::DB,
                 'title' => 'Основная база',
-                'connection' => 'db'
+                'connection' => 'db',
+                'limit' => 3
+            ],
+            [
+                'id' => 'main_storage',
+                'type' => BackupType::FILES,
+                'title' => 'Папка storage',
+                'path' => '@app/storage',
+                'limit' => 3
             ]
         ]
     ],
