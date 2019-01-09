@@ -25,8 +25,8 @@
     "yiisoft/yii2-swiftmailer": "~2.0.0",
     "fishvision/yii2-migrate": "^1.0",
     "floor12/yii2-module-pages": "dev-master",
-    "floor12/yii2-module-news": "*",
-    "floor12/yii2-module-banner": "*",
+    "floor12/yii2-module-news": "dev-master",
+    "floor12/yii2-module-banner": "dev-master",
     "floor12/yii2-module-user": "dev-master",
     "floor12/yii2-fprotector": "dev-master",
     "floor12/yii2-formhint": "dev-master",
@@ -94,6 +94,18 @@
     {
       "type": "git",
       "url": "https://github.com/floor12/yii2-module-user"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/floor12/yii2-module-pages"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/floor12/yii2-module-news"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/floor12/yii2-module-banner"
     }
   ]
 }
