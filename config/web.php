@@ -18,6 +18,24 @@ $config = [
     ],
     'modules' => $modules,
     'components' => [
+        'assetManager' => [
+            'appendTimestamp' => true,
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'sourcePath' => null,
+                    'basePath' => '@webroot',
+                    'baseUrl' => '@web',
+                    'js' => [
+                        'https://code.jquery.com/jquery-3.3.1.min.js',
+                    ]
+                ],
+                'yii\bootstrap\BootstrapAsset' => [
+                    'css' => [
+                        'css/bootstrap.min.css'
+                    ]
+                ],
+            ],
+        ],
         'metamaster' => [
             'class' => 'floor12\metamaster\MetaMaster',
             'siteName' => "Floor12 basic application",

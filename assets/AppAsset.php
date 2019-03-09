@@ -26,10 +26,6 @@ class AppAsset extends AssetBundle
         'js/autosubmit.js'
     ];
     public $depends = [
-        'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
-        'floor12\editmodal\EditModalAsset',
-        'floor12\formhint\FormHintAsset',
-        'floor12\pages\assets\PagesAsset'
     ];
 }
