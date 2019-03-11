@@ -9,6 +9,7 @@ use floor12\banner\widgets\PopupWidget;
 use floor12\pages\components\Breadcrumbs;
 use floor12\pages\components\DropdownMenuWidget;
 use floor12\pages\components\MobileMenuWidget;
+use floor12\pages\components\SideMenuWidget;
 use yii\helpers\Html;
 
 AppAsset::register($this);
@@ -48,11 +49,15 @@ AppAsset::register($this);
         </div>
     </div>
 
-    <div class="container">
+    <div class="container main">
+        <aside>
+            <?= SideMenuWidget::widget([]) ?>
+        </aside>
+        <main>
+            <?= (Yii::$app->request->url != '/') ? Breadcrumbs::widget(['items' => !empty($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],]) : NULL; ?>
+            <?= $content ?>
+        </main>
 
-        <?= (Yii::$app->request->url != '/') ? Breadcrumbs::widget(['items' => !empty($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],]) : NULL; ?>
-
-        <?= $content ?>
     </div>
 </div>
 

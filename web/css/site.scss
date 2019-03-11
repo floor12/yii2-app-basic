@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-  margin-top: -7px;
+  margin-top: 0;
   padding-bottom: 2px;
   border-bottom: 1px #eee solid;
 }
@@ -29,6 +29,21 @@ h1 {
 
 div.top-menu {
   background-color: #eee;
+  padding: 10px 0 7px;
+  margin-bottom: 30px;
+}
+
+div.container.main {
+  display: flex;
+
+  aside {
+    width: 240px;
+    padding: 0 15px 15px 0;
+  }
+
+  main {
+    flex: 1;
+  }
 }
 
 //editmodal
@@ -38,15 +53,35 @@ div.modal-header h2 {
   font-size: 170%;
 }
 
+//side menu
+
+ul.sideMenu {
+  list-style: none;
+  padding: 0;
+
+  li {
+    a {
+      display: block;
+      padding: 5px;
+    }
+  }
+
+  li.active {
+    background-color: #eee;
+  }
+}
+
+
 //breadcrumbs
 
 ol.breadcrumbs {
   list-style: none;
-  padding: 10px 0;
+  padding: 0;
   transition: all 0.3s;
   clear: both;
-  margin-top: 17px;
-  height: 40px;
+  background-color: #eee;
+  height: 26px;
+  padding: 5px;
 
   li {
     float: left;
