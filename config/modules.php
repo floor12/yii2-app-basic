@@ -6,11 +6,16 @@
  * Time: 9:50
  */
 
+use common\src\enum\RoleEnum;
 use floor12\backup\models\BackupType;
 use floor12\user\models\User;
 
 
 return [
+    'feedback' => [
+        'class' => 'floor12\feedback\Module',
+        'adminRoles' => ['@'],
+    ],
     'backup' => [
         'class' => 'floor12\backup\Module',
         'backupFolder' => '@app/backups',

@@ -1,12 +1,13 @@
 <?php
 
-use yii\db\Migration;
-use floor12\user\models\UserStatus;
 use floor12\user\models\User;
+use floor12\user\models\UserStatus;
+use yii\db\Migration;
+
 /**
  * Class m180927_103257_init_data
  */
-class m180927_103257_init_data extends Migration
+class m190401_103257_init_data extends Migration
 {
     /**
      * {@inheritdoc}

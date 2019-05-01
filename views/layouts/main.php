@@ -5,6 +5,7 @@
 /* @var $content string */
 
 use app\assets\AppAsset;
+use floor12\adminWidget\AdminWidget;
 use floor12\banner\widgets\PopupWidget;
 use floor12\pages\components\Breadcrumbs;
 use floor12\pages\components\DropdownMenuWidget;
@@ -27,6 +28,7 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+<?= AdminWidget::widget([]) ?>
 <?php PopupWidget::widget([]) ?>
 
 <div id="mobile-menu">

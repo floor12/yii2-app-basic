@@ -77,6 +77,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/login' => '/user/frontend/login',
                 '/<path:[\w_\/-]+>.html' => '/pages/page/view',
                 '/sitemap.xml' => '/site/sitemap',
             ],
