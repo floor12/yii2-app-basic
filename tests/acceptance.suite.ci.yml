@@ -1,0 +1,12 @@
+class_name: AcceptanceTester
+modules:
+  enabled:
+    - WebDriver:
+        url: http://php
+        host: selenium
+        browser: chrome
+    - Yii2:
+        part: [orm, email, fixtures]
+        entryScript: index-test.php
+        cleanup: false
+
