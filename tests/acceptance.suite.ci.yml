@@ -2,7 +2,7 @@ class_name: AcceptanceTester
 modules:
   enabled:
     - WebDriver:
-        url: http://php
+        url: http://nginx
         host: selenium
         browser: chrome
     - Yii2:
