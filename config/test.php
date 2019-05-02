@@ -1,6 +1,7 @@
 <?php
 $params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/test_db.php';
+$db = require __DIR__ . '/db.test.php';
+$modules = require __DIR__ . '/modules.php';
 
 /**
  * Application configuration shared by all test types
@@ -13,6 +14,7 @@ return [
         '@npm'   => '@vendor/npm-asset',
     ],
     'language' => 'en-US',
+    'modules' => $modules,
     'components' => [
         'db' => $db,
         'mailer' => [
