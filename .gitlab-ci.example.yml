@@ -21,7 +21,6 @@ codeception:
     - pip install docker-compose
     - docker-compose up -d
     - docker exec akppro_php_1 composer install
-    - docker exec akppro_php_1 mysql -uroot -proot -h mysql -e "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));"
     - docker exec akppro_php_1 cp config/db.docker.php config/db.test.php
     - docker exec akppro_php_1 cp config/db.docker.php config/db.php
     - docker exec akppro_php_1 cp tests/acceptance.suite.ci.yml tests/acceptance.suite.yml
