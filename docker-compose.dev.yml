@@ -6,7 +6,6 @@ services:
     image: mysql:5.7
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
-      - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: database
