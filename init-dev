@@ -8,5 +8,6 @@ cp config/db.docker.php config/db.php
 cp config/db.docker.php config/db.test.php
 cp tests/acceptance.suite.ci.yml tests/acceptance.suite.yml
 docker-compose up -d
+sleep 10
 docker exec $CONTAINER composer install -vv
 docker exec $CONTAINER ./yii migrate --interactive=0
