@@ -1,13 +1,10 @@
 #!/bin/bash
-CURRENT=`pwd`
-BASENAME=`basename "$CURRENT"`
-CONTAINER="$BASENAME"_php_1
-
 cp docker-compose.dev.yml docker-compose.yml
 cp config/db.docker.php config/db.php
 cp config/db.docker.php config/db.test.php
 cp tests/acceptance.suite.ci.yml tests/acceptance.suite.yml
 docker-compose up -d
-sleep 10
-docker exec $CONTAINER composer install -vv
-docker exec $CONTAINER ./yii migrate --interactive=0
+docker-compose exec php composer install -vv
+echo 'Waiting 30 seconds for mysql server first start...'
+sleep 30
+docker-compose exec php ./yii migrate --interactive=0
