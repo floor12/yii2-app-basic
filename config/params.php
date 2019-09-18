@@ -2,8 +2,8 @@
 
 return [
     'adminEmail' => 'admin@example.com',
-    'no-replayEmail' => 'no-reply@example.com',
-    'no-replayName' => 'Почтовый робот нового сайта',
+    'no-replyEmail' => 'no-reply@example.com',
+    'no-replyName' => 'Почтовый робот нового сайта',
     'user.passwordResetTokenExpire' => 3600,
 
     'contactForm' => [
